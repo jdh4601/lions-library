@@ -1,0 +1,39 @@
+.align-box {
+  width: 320px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.input-container label {
+  color: black;
+  font-family: 'MaruBuri';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  margin-left: 30px;
+}
+
+.input-container  input {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  width: 240px;
+  height: 45px;
+  background: #DDC8BD;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  border-style: none;
+}
+
+.input-container  .id {
+  margin-left: 33px;
+}
+
+.btn-box {
+  width: 100%;
+  position: relative;
+}
