@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import NextButton from '../UI/NextButton';
 import Input from '../UI/Input';
+import { Link } from 'react-router-dom';
 
 const database = [
   {
@@ -32,10 +33,14 @@ function Login() {
   const [isSumitted, setIsSumitted] = useState(false);
   console.log('rendering...');
 
-  // Move sign-up page if the form is submitted
+  // Move sign-up page if the form is not submitted
   const navigate = useNavigate();
-  const moveSignUp = () => {
-    navigate('/signup');
+  // const moveSignUp = () => {
+  //   navigate('/signup');
+  // };
+
+  const moveFeed = () => {
+    navigate('/feed');
   };
 
   // Generate error messages
@@ -91,7 +96,7 @@ function Login() {
           <h1>Login</h1>
         </div>
         {isSumitted ? alert('User is successfully logged in!') : RenderForm}
-        {isSumitted && moveSignUp}
+        {isSumitted && moveFeed}
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import btnImg from '../../assets/img/Ellipse 8.png';
+import MainBtn from '../UI/MainBtn';
 // import Card from '../UI/Card';
-import NextButton from '../UI/NextButton';
+
+const slideBar = event => {
+  console.log(event.target);
+};
 
 function Home() {
   return (
@@ -11,21 +14,20 @@ function Home() {
       <h1 className="title">사자의 서재</h1>
       <div className="container">
         <div className="box">
-          <h2>
-            <Link className="nav" to="/Login">
-              Login
-            </Link>
-          </h2>
-          <img className="btn-bg" src={btnImg} alt="button" />
+          <Link className="nav" to="/login">
+            <h2>Login</h2>
+          </Link>
+          <Link to="/login">
+            <MainBtn className="login-btn" onClick={slideBar} />
+          </Link>
         </div>
         <div className="box">
-          <h2>
-            <Link className="nav" to="/SignUp">
-              Sign up
-            </Link>
-          </h2>
-          <NextButton />
-          {/* <img className="btn-bg" src={btnImg} alt="button" /> */}
+          <Link className="nav" to="/SignUp">
+            <h2>Sign up</h2>
+          </Link>
+          <Link to="/signup">
+            <MainBtn className="signup-btn" />
+          </Link>
         </div>
       </div>
     </div>
