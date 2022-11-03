@@ -1,0 +1,25 @@
+.btn-box {
+  width: 100%;
+  position: relative;
+}
+
+.btn-box:hover {
+  transform: scale(1.05);
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 2px;
+  transform: scale3d(2);
+  cursor: pointer;
+}
+
+.arrow {
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  top: 0px;
+  cursor: pointer;
+}
