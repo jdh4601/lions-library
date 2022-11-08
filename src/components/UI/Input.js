@@ -6,7 +6,14 @@ function Input(props) {
     <div className="align-box">
       <div className="input-container">
         <label>{props.name}</label>
-        <input type="text" placeholder="  Enter your password" required />
+        <input
+          type="text"
+          value={props.value}
+          name={props.name}
+          placeholder={`   Enter your ${props.name}`}
+          onChange={props.onChange}
+          required
+        />
       </div>
     </div>
   );
