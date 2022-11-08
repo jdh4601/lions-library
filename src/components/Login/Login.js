@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import NextButton from '../UI/NextButton';
 import Input from '../UI/Input';
-import { Link } from 'react-router-dom';
 
 const database = [
   {
@@ -11,11 +10,11 @@ const database = [
     password: '1234',
   },
   {
-    id: 'user1',
+    id: 'user2',
     password: '1234',
   },
   {
-    id: 'user1',
+    id: 'user3',
     password: '1234',
   },
 ];
@@ -27,21 +26,20 @@ const errors = {
 };
 
 function Login() {
-  // Store an obj with error messages
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState({});
-  // Change boolean value if the form is successfully submitted
   const [isSumitted, setIsSumitted] = useState(false);
-  console.log('rendering...');
 
-  // Move sign-up page if the form is not submitted
   const navigate = useNavigate();
-  // const moveSignUp = () => {
-  //   navigate('/signup');
-  // };
 
-  const moveFeed = () => {
-    navigate('/feed');
+  const moveToSignUp = () => {
+    navigate('/signup');
   };
+
+  // const moveToFeed = () => {
+  //   navigate('/feed');
+  // };
 
   // Generate error messages
   const RenderErrorMessage = name => {
@@ -50,15 +48,19 @@ function Login() {
     );
   };
 
-  const HandleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault();
-    // 가장 첫번째 forms 참조하기
-    var { id, password } = document.forms[0];
+    setId('');
+    setPassword('');
+    var id = event.target.ID;
+    var password = event.target.PW;
+    console.log(event.target);
+    console.log(id, password);
 
-    // Find user login info - 배열 순회
-    const userData = database.find(user => user.id === id.value); // true or false
+    // Find user login info
+    const userData = database.find(user => user.id === id.value);
+    console.log(userData); // true or false
 
-    // Compare user id
     if (userData) {
       // Check user password
       if (userData.password !== password.value) {
@@ -81,11 +83,23 @@ function Login() {
 
   const RenderForm = (
     <>
-      <form className="input-box" onSubmit={HandleSubmit}>
-        <Input name="ID">{RenderErrorMessage('id')}</Input>
-        <Input name="PW">{RenderErrorMessage('password')}</Input>
+      <form className="input-box" onSubmit={handleSubmit}>
+        <Input value={id} name="ID" onChange={e => setId(e.target.value)} />
+        {RenderErrorMessage('id')}
+        <Input
+          value={password}
+          name="PW"
+          onChange={e => setPassword(e.target.value)}
+        />
+        {RenderErrorMessage('password')}
+        <p className="signup">
+          Don't have an account?{' '}
+          <span className="link" onClick={moveToSignUp}>
+            Sign up
+          </span>
+        </p>
+        <NextButton onClick={handleSubmit} />
       </form>
-      <NextButton onClick={HandleSubmit} onSubmit={HandleSubmit} />
     </>
   );
 
@@ -96,7 +110,6 @@ function Login() {
           <h1>Login</h1>
         </div>
         {isSumitted ? alert('User is successfully logged in!') : RenderForm}
-        {isSumitted && moveFeed}
       </div>
     </div>
   );
