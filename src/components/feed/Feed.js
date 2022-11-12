@@ -1,46 +1,31 @@
-import React from 'react';
-import './feed.css';
+import React, { useState } from 'react';
+import FeedAPI from './FeedAPI';
+import './Feed.css';
 
 function Feed() {
+  const [searchInputText, setSearchInputText] = useState('');
+
   return (
     <div>
       <div className="container">
         <div className="header">
           <h1>실시간 인기 도서</h1>
+          <input
+            type="text"
+            value={searchInputText}
+            onChange={e => setSearchInputText(e.target.value)}
+          />
         </div>
         <div className="body">
-          <ul className="books">
-            <li>
-              <p>Book1</p>
-              <img src="*" />
-            </li>
-            <li>
-              <p>Book2</p>
-              <img src="*" />
-            </li>
-            <li>
-              <p>Book3</p>
-              <img src="*" />
-            </li>
-            <li>
-              <p>Book4</p>
-              <img src="*" />
-            </li>
-            <li>
-              <p>Book5</p>
-              <img src="*" />
-            </li>
-            <li>
-              <p>Book6</p>
-              <img src="*" />
-            </li>
-          </ul>
-          <div className="btn-box">
+          <div className="book_box">
+            <FeedAPI textVal={searchInputText} />
+          </div>
+          <div className="btn_box">
             <button className="total-btn">Total</button>
             <div className="btns">
-              <button className="hot">인기도서</button>
-              <button className="profile">Profile</button>
-              <button className="record">Record</button>
+              <button className="popular">인기</button>
+              <button className="profile">My</button>
+              <button className="record">기록</button>
             </div>
           </div>
         </div>
