@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BottomBtn from '../UI/BottomBtn';
 import FeedAPI from './FeedAPI';
 import './Feed.css';
 
@@ -17,17 +18,8 @@ function Feed() {
           />
         </div>
         <div className="body">
-          <div className="book_box">
-            <FeedAPI textVal={searchInputText} />
-          </div>
-          <div className="btn_box">
-            <button className="total-btn">Total</button>
-            <div className="btns">
-              <button className="popular">인기</button>
-              <button className="profile">My</button>
-              <button className="record">기록</button>
-            </div>
-          </div>
+          <FeedAPI textVal={searchInputText} />
+          <BottomBtn />
         </div>
       </div>
     </div>
