@@ -1,13 +1,19 @@
-.book_container {
+img {
+  width: 220px;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 20;
+}
+
+.title {
+  font-size: 15px;
+}
+
+.book {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 280px;
-}
-
-.book_container img {
-  width: 70%;
-  height: 70%;
 }

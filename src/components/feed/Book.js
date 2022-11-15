@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './Book.css';
 
 const Book = ({ id, coverImg, title }) => {
   return (
-    <div className="book_container">
-      <img src={coverImg} />
-      <Link to={`/movie/${id}`}>{title}</Link>
-    </div>
+    <>
+      <div className="book">
+        <img src={coverImg} />
+        <p className="title">{title}</p>
+      </div>
+    </>
   );
 };
 

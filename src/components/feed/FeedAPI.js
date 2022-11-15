@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Book from './Book';
+import './feedAPI.css';
 
 const FeedAPI = ({ textVal }) => {
   const [loading, setLoading] = useState(true);
@@ -23,16 +24,20 @@ const FeedAPI = ({ textVal }) => {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <ul>
-          {books.map(book => (
-            <Book
-              key={book.idMeal}
-              id={book.idMeal}
-              title={book.strMeal}
-              coverImg={book.strMealThumb}
-            />
-          ))}
-        </ul>
+        <div className="slider">
+          <div className="slides">
+            {books.map(book => (
+              <div className="content">
+                <Book
+                  key={book.idMeal}
+                  id={book.idMeal}
+                  title={book.strMeal}
+                  coverImg={book.strMealThumb}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );
