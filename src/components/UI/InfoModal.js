@@ -22,7 +22,9 @@ const InfoModal = ({
       <Modal.Content image>
         <Image size="huge" src={thumbnail} />
         <Modal.Description>
-          <Header>{subtitle}</Header>
+          <Header>
+            {title} : {subtitle}
+          </Header>
           <span>{description}</span>
         </Modal.Description>
       </Modal.Content>
