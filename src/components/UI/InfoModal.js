@@ -20,7 +20,7 @@ const InfoModal = ({
       trigger={<Button>More Info</Button>}
     >
       <Modal.Content image>
-        <Image size="huge" src={thumbnail} />
+        <Image size="middle" src={thumbnail} />
         <Modal.Description>
           <h2>{title}</h2>
           <h4>{subtitle}</h4>
