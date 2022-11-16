@@ -6,21 +6,36 @@ const FeedAPI = ({ textVal }) => {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
 
-  const GetBooks = async () => {
+  const getBooks = async () => {
     const res = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/filter.php?i=egg`
+      `https://www.googleapis.com/books/v1/volumes?q=quilting`
     );
     const json = await res.json();
     setLoading(false);
-    setBooks(json.meals);
+    setBooks(json.items);
   };
 
+  // const postBooks = () => {
+  //   fetch(`https://www.abibliadigital.com.br/api/verses/search`, {
+  //     method: 'POST',
+  //     body: {
+  //       version: 'nvi',
+  //       search: 'terra',
+  //     },
+  //     headers: {
+  //       'content-type': 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data));
+  // };
+
   useEffect(() => {
-    GetBooks();
+    getBooks();
   }, [textVal]);
 
   return (
-    <div>
+    <>
       {loading ? (
         <h1>Loading...</h1>
       ) : (
@@ -29,17 +44,21 @@ const FeedAPI = ({ textVal }) => {
             {books.map(book => (
               <div className="content">
                 <Book
-                  key={book.idMeal}
-                  id={book.idMeal}
-                  title={book.strMeal}
-                  coverImg={book.strMealThumb}
+                  key={book.id}
+                  id={book.id}
+                  title={book.volumeInfo.title}
+                  subtitle={book.volumeInfo.subtitle}
+                  authors={book.volumeInfo.authors}
+                  publisher={book.volumeInfo.publisher}
+                  categories={book.volumeInfo.categories}
+                  thumbnail={book.volumeInfo.imageLinks.thumbnail}
                 />
               </div>
             ))}
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
