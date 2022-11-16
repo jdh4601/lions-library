@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TextLoader from '../UI/TextLoader';
 import Book from './Book';
 import './feedAPI.css';
 
@@ -37,7 +38,7 @@ const FeedAPI = ({ textVal }) => {
   return (
     <>
       {loading ? (
-        <h1>Loading...</h1>
+        <TextLoader />
       ) : (
         <div className="slider">
           <div className="slides">
@@ -48,6 +49,7 @@ const FeedAPI = ({ textVal }) => {
                   id={book.id}
                   title={book.volumeInfo.title}
                   subtitle={book.volumeInfo.subtitle}
+                  description={book.volumeInfo.description}
                   authors={book.volumeInfo.authors}
                   publisher={book.volumeInfo.publisher}
                   categories={book.volumeInfo.categories}
