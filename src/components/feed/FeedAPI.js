@@ -48,6 +48,7 @@ const FeedAPI = ({ textVal }) => {
                   id={book.id}
                   title={book.volumeInfo.title}
                   subtitle={book.volumeInfo.subtitle}
+                  description={book.volumeInfo.description}
                   authors={book.volumeInfo.authors}
                   publisher={book.volumeInfo.publisher}
                   categories={book.volumeInfo.categories}

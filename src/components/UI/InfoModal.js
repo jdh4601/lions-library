@@ -8,6 +8,7 @@ const InfoModal = ({
   publisher,
   categories,
   thumbnail,
+  description,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -18,29 +19,20 @@ const InfoModal = ({
       open={open}
       trigger={<Button>More Info</Button>}
     >
-      <Modal.Header>Select a Photo</Modal.Header>
       <Modal.Content image>
-        <Image size="medium" src="/images/avatar/large/rachel.png" wrapped />
+        <Image size="huge" src={thumbnail} />
         <Modal.Description>
-          <Header>Default Profile Image</Header>
-          <p>
-            We've found the following gravatar image associated with your e-mail
-            address.
-          </p>
-          <p>Is it okay to use this photo?</p>
+          <Header>{subtitle}</Header>
+          <span>{description}</span>
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
         <Button color="black" onClick={() => setOpen(false)}>
-          Nope
+          Cancel
         </Button>
-        <Button
-          content="Yep, that's me"
-          labelPosition="right"
-          icon="checkmark"
-          onClick={() => setOpen(false)}
-          positive
-        />
+        <Button onClick={() => setOpen(false)} positive>
+          Yes
+        </Button>
       </Modal.Actions>
     </Modal>
   );

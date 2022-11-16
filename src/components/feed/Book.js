@@ -10,6 +10,7 @@ const Book = ({
   publisher,
   categories,
   thumbnail,
+  description,
 }) => {
   return (
     <>
@@ -19,6 +20,7 @@ const Book = ({
         <InfoModal
           title={title}
           subtitle={subtitle}
+          description={description}
           thumbnail={thumbnail}
           author={authors}
           publisher={publisher}
