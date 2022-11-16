@@ -1,12 +1,29 @@
 import React from 'react';
 import './Book.css';
+import InfoModal from '../UI/InfoModal';
 
-const Book = ({ id, coverImg, title }) => {
+const Book = ({
+  id,
+  title,
+  subtitle,
+  authors,
+  publisher,
+  categories,
+  thumbnail,
+}) => {
   return (
     <>
-      <div className="book">
-        <img src={coverImg} />
+      <div className="book" id={id}>
+        <img src={thumbnail} />
         <p className="title">{title}</p>
+        <InfoModal
+          title={title}
+          subtitle={subtitle}
+          thumbnail={thumbnail}
+          author={authors}
+          publisher={publisher}
+          categories={categories}
+        />
       </div>
     </>
   );
