@@ -22,7 +22,7 @@ const Book = ({
           subtitle={subtitle}
           description={description}
           thumbnail={thumbnail}
-          author={authors}
+          authors={authors}
           publisher={publisher}
           categories={categories}
         />
