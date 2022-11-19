@@ -5,10 +5,10 @@ import './NextButton.css';
 function NextButton(props) {
   return (
     <div className="btn-box">
-      <button onClick={props.onClick} onSubmit={props.onSubmit}>
+      <div onClick={props.onClick} onSubmit={props.onSubmit}>
         <img className="circle" src={btnImg} alt="btn-img" />
         <img className="arrow" src={arrowImg} alt="arrow-img" />
-      </button>
+      </div>
     </div>
   );
 }

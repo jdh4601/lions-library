@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import BottomBtn from '../UI/BottomBtn';
 import FeedAPI from './FeedAPI';
+import Card from '../UI/Card';
 import './Feed.css';
 
 function Feed() {
   const [searchInputText, setSearchInputText] = useState('');
 
   return (
-    <div>
-      <div className="container">
+    <>
+      <Card>
         <div className="header">
           <h1>실시간 인기 도서</h1>
           <input
@@ -21,8 +22,8 @@ function Feed() {
           <FeedAPI textVal={searchInputText} />
           <BottomBtn />
         </div>
-      </div>
-    </div>
+      </Card>
+    </>
   );
 }
 

@@ -17,15 +17,6 @@
   color: #BA8889;
 }
 
-.header input {
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  width: 60%;
-  height: 30px;
-  margin-top: 15px;
-}
-
 .body {
   width: 100%;
   display: flex;

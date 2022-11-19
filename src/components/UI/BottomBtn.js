@@ -1,32 +1,29 @@
-import React, { useState } from 'react';
-// import styled from 'styled-components';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './BottomBtn.css';
 
 const BottomBtn = () => {
-  const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
 
   const moveToFeed = () => {
     navigate('/feed');
   };
 
+  const moveToTotal = () => {
+    navigate('/total');
+  };
+
   const moveToMy = () => {
-    navigate('/my');
+    navigate('/mypage');
   };
 
   const moveToRecord = () => {
     navigate('/record');
   };
 
-  const buttonClickHandler = () => {
-    console.log('clicked!');
-    setIsClicked(!isClicked);
-  };
-
   return (
     <div className="btn_box">
-      <button className="total-btn" onClick={buttonClickHandler}>
+      <button className="total-btn" onClick={moveToTotal}>
         Total
       </button>
       <div className="btns">

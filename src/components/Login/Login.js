@@ -37,9 +37,9 @@ function Login() {
     navigate('/signup');
   };
 
-  // const moveToFeed = () => {
-  //   navigate('/feed');
-  // };
+  const moveToFeed = () => {
+    navigate('/feed');
+  };
 
   // Generate error messages
   const RenderErrorMessage = name => {
@@ -54,9 +54,7 @@ function Login() {
     setPassword('');
     var id = event.target.ID;
     var password = event.target.PW;
-    console.log(event.target);
-    console.log(id, password);
-
+    moveToFeed();
     // Find user login info
     const userData = database.find(user => user.id === id.value);
     console.log(userData); // true or false

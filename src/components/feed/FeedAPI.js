@@ -16,21 +16,6 @@ const FeedAPI = ({ textVal }) => {
     setBooks(json.items);
   };
 
-  // const postBooks = () => {
-  //   fetch(`https://www.abibliadigital.com.br/api/verses/search`, {
-  //     method: 'POST',
-  //     body: {
-  //       version: 'nvi',
-  //       search: 'terra',
-  //     },
-  //     headers: {
-  //       'content-type': 'application/json',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => console.log(data));
-  // };
-
   useEffect(() => {
     getBooks();
   }, [textVal]);

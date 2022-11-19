@@ -1,36 +1,29 @@
 .home {
-  background-color:#FAF2EA;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  background-image: url('../../assets/img/새별\ 1.png');
 }
 
-h1 {
-  margin-top: 0;
-}
 
-.title {
+.home .title {
   font-weight: 400;
-  font-size: 70px;
-  padding-top: 100px;
+  margin-top: 0;
+  font-size: 60px;
+  padding-top: 200px;
   text-align: center;
   color: #000000;
 }
 
-.container {
+.home .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  background-color: #ddc8bd;
-  margin: 10px auto;
-  width: 100%;
-  height: 312px;
-  border-radius: 8px;
-}
-
-.nav {
-  text-align: center;
-  text-decoration: none;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #FAF2EA;
+  margin: 50px auto;
+  width: 80%;
+  height: 220px;
+  border-radius: 10px;
 }
 
 h2 {
@@ -42,11 +35,22 @@ h2 {
   text-decoration: none;
 }
 
-.box {
+.home .container .box {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  margin-right: 550px;
-  margin-bottom: 20px;
+}
+
+.label {
+  margin-right: 20px;
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  border-radius: 8px;
+  border-style: none;
+  cursor: pointer;
 }
