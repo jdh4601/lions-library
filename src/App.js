@@ -5,6 +5,8 @@ import Login from './components/Login/Login';
 import SignUp from './components/Login/SignUp';
 import Feed from './components/feed/Feed';
 import MyPage from './components/MyPage/MyPage';
+import Total from './components/Total/Total';
+import Record from './components/record/Record';
 import './App.css';
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="/total" element={<Total />} />
+          <Route path="/record" element={<Record />} />
         </Routes>
       </BrowserRouter>
     </div>
