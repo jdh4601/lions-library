@@ -12,6 +12,7 @@ const Book = ({
   categories,
   thumbnail,
   description,
+  infoLink,
 }) => {
   // const { books } = useContext(BookContext);
 
@@ -27,6 +28,7 @@ const Book = ({
         authors={authors}
         publisher={publisher}
         categories={categories}
+        infoLink={infoLink}
       />
     </div>
   );

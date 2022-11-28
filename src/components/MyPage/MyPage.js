@@ -1,7 +1,7 @@
 import './MyPage.css';
 import Card from '../UI/Card';
 import BottomBtn from '../UI/BottomBtn';
-import FeedAPI from '../feed/FeedAPI';
+import InputFile from './InputFile';
 
 function MyPage() {
   return (
@@ -11,7 +11,7 @@ function MyPage() {
           <h1>내가 작성한 도서</h1>
         </div>
         <div className="body">
-          <FeedAPI />
+          <InputFile />
           <BottomBtn />
         </div>
       </Card>

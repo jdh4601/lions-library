@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "EF_Rebecca";
+    src: url('./font/EF_Rebecca.otf');
+}
+
 * {
   box-sizing: border-box;
+  font-family: "EF_Rebecca";
+}
+
+body {
+    font-family: "EF_Rebecca";
 }

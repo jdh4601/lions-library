@@ -9,8 +9,10 @@ const InfoModal = ({
   categories,
   thumbnail,
   description,
+  infoLink,
 }) => {
   const [open, setOpen] = useState(false);
+  const url = infoLink;
 
   return (
     <Modal
@@ -34,8 +36,13 @@ const InfoModal = ({
         <Button color="black" onClick={() => setOpen(false)}>
           Cancel
         </Button>
-        <Button onClick={() => setOpen(false)} positive>
-          Yes
+        <Button
+          onClick={() => {
+            window.open(url);
+          }}
+          positive
+        >
+          More
         </Button>
       </Modal.Actions>
     </Modal>

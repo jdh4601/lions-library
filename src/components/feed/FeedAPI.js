@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import TextLoader from '../UI/TextLoader';
 import Book from './Book';
-import './feedAPI.css';
+import './FeedAPI.css';
 
-const FeedAPI = ({ textVal }) => {
+const FeedAPI = ({ searchInputText }) => {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
+  let SEARCH_VALUE = '';
 
   const getBooks = async () => {
+    SEARCH_VALUE = searchInputText;
     const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=quilting`
+      `https://www.googleapis.com/books/v1/volumes?q=${SEARCH_VALUE}`
     );
     const json = await res.json();
     setLoading(false);
@@ -18,7 +20,7 @@ const FeedAPI = ({ textVal }) => {
 
   useEffect(() => {
     getBooks();
-  }, [textVal]);
+  }, []);
 
   return (
     <>
@@ -39,6 +41,7 @@ const FeedAPI = ({ textVal }) => {
                   publisher={book.volumeInfo.publisher}
                   categories={book.volumeInfo.categories}
                   thumbnail={book.volumeInfo.imageLinks.thumbnail}
+                  infoLink={book.volumeInfo.infoLink}
                 />
               </div>
             ))}
