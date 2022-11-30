@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon, Input } from 'semantic-ui-react';
 import './Search.css';
 
-const Search = () => {
+const SearchBar = ({ inputHandler }) => {
   const updateInputValue = event => {
     event.preventDefault();
   };
@@ -14,8 +14,7 @@ const Search = () => {
           type="text"
           className="search-input"
           placeholder="Search title..."
-          onChange={''}
-          value={''}
+          onChange={inputHandler}
         />
         <Icon onClick={updateInputValue} name="search" inverted link />
       </div>
@@ -23,4 +22,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchBar;
