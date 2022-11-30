@@ -6,17 +6,25 @@ import './FeedAPI.css';
 const FeedAPI = ({ searchInputText }) => {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
-  let SEARCH_VALUE = '';
 
+  // fetch book api & add to array
   const getBooks = async () => {
-    SEARCH_VALUE = searchInputText;
     const res = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${SEARCH_VALUE}`
+      `https://www.googleapis.com/books/v1/volumes?q=brain`
     );
     const json = await res.json();
     setLoading(false);
     setBooks(json.items);
   };
+
+  // Filtered array elements which contain user input
+  const filteredBooks = books.filter(element => {
+    if (searchInputText === '') {
+      return element;
+    } else {
+      return element.volumeInfo.title.toLowerCase().includes(searchInputText);
+    }
+  });
 
   useEffect(() => {
     getBooks();
@@ -29,7 +37,7 @@ const FeedAPI = ({ searchInputText }) => {
       ) : (
         <div className="slider">
           <div className="slides">
-            {books.map(book => (
+            {filteredBooks.map(book => (
               <div className="content">
                 <Book
                   key={book.id}
